@@ -100,7 +100,7 @@ If ( $PSVersionTable.PSVersion.Major -ge 3)
                     #Write-Host $_.Path $_.Type "SUSPICIOUS"
                     $SuspiciousEncryptedFiles = $_.Path + ',' + $_Type + ',' + $_.Entropy
                     Write-Host $SuspiciousEncryptedFiles
-                    $SuspiciousEncryptedFiles | Out-File -Appends 'SuspectRansomEncryptedFiles.csv'
+                    $SuspiciousEncryptedFiles | Out-File -Append 'SuspectRansomEncryptedFiles.csv'
                     $position++
                     Write-Progress -Activity "Looking unknown data magic types" -Status "Progress:" `
                     -PercentComplete ( ($position / $totalCount) * 100 )
