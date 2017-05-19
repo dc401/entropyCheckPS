@@ -95,7 +95,7 @@ If ( $PSVersionTable.PSVersion.Major -ge 3)
             #Extrapolate unknown fileypes
             Import-Csv .\HighEntropyResults.csv -Header Path,Type,Entropy | ForEach-Object `
             {
-                If ( $_.Type -like "*unknown*" )
+                If ( ($_.Type -like "*unknown*") -or ($_.Type -like "*Non-ISO extended*") )
                 {
                     #Write-Host $_.Path $_.Type "SUSPICIOUS"
                     $SuspiciousEncryptedFiles = $_.Path + ',' + $_Type + ',' + $_.Entropy
